@@ -25,7 +25,7 @@ Clonar el repositorio:
 
 ```bash
 
-git clone <URL_DEL_REPOSITORIO>
+git clone https://github.com/KevinDamianDev/customer-fullstack.git
 
 ```
  
