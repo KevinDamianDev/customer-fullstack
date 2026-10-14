@@ -16,8 +16,8 @@ API REST con Spring Boot para la gestión de clientes y la consulta de indicador
 ## Requisitos
 Para ejecutar el proyecto es necesario tener instalado:
  
-- Java 21 o superior
-- Git (opcional, para clonar el repositorio)
+- Java 21
+- Git
  
  
 ## Instalación
@@ -28,7 +28,6 @@ Clonar el repositorio:
 git clone https://github.com/KevinDamianDev/customer-fullstack.git
 
 ```
- 
 Ingresar al directorio del backend: cd customers-backend
 
  
@@ -42,12 +41,6 @@ Una vez iniciada la aplicación, el backend estará disponible en: http://localh
 ## Base de datos
  
 El proyecto utiliza H2 como base de datos en memoria.
-Configuración principal:
-
-URL: jdbc:h2:mem:customersdb
-Usuario: sa
-Password: vacío
-
 H2 esta disponible en: http://localhost:8080/h2-console
 
 ---
@@ -76,7 +69,7 @@ POST /api/customers
 
 ```
  
-La fecha de creación no debe enviarse en la petición ya que es generada automáticamente
+La fecha de creación es generada automáticamente
  
 ### Response
  
@@ -148,9 +141,9 @@ La API permite consultar indicadores calculados a partir de las fechas de nacimi
  
 Los indicadores disponibles son:
  
-- Cantidad de clientes nacidos por mes/año.
-- Mes/año con mayor cantidad de clientes nacidos.
-- Mes/año con menor cantidad de clientes nacidos.
+- Cantidad de clientes nacidos por mes/año
+- Mes/año con mayor cantidad de clientes nacidos
+- Mes/año con menor cantidad de clientes nacidos
 - Tasa de natalidad de cada mes/año.
  
 ## Consultar indicadores
@@ -166,7 +159,6 @@ GET /api/customers/indicators
 {
 
     "nacimientosPorMesAnio": [
-
         {
             "mes": 10,
             "anio": 1995,
@@ -174,30 +166,24 @@ GET /api/customers/indicators
             "tasaNatalidad": 75.0
 
         },
-
         {
             "mes": 8,
             "anio": 2000,
             "cantidad": 1,
             "tasaNatalidad": 25.0
         }
-
     ],
 
     "mayorCantidadNacimientos": {
         "mes": 10,
         "anio": 1995,
         "cantidad": 3
-
     },
-
     "menorCantidadNacimientos": {
         "mes": 8,
         "anio": 2000,
         "cantidad": 1
-
     }
-
 }
 
 ```
@@ -219,14 +205,14 @@ Tasa = (3 / 4) * 100 = 75%
  
 Durante la creación de clientes se realizan las siguientes validaciones:
  
-- Nombre obligatorio.
-- Apellido obligatorio.
-- Email obligatorio y con formato válido.
-- DNI obligatorio.
-- Fecha de nacimiento obligatoria.
-- La fecha de nacimiento debe ser anterior a la fecha actual.
-- El DNI no puede estar registrado previamente.
-- El email no puede estar registrado previamente.
+- Nombre obligatorio
+- Apellido obligatorio
+- Email obligatorio y con formato válido
+- DNI obligatorio
+- Fecha de nacimiento obligatoria
+- La fecha de nacimiento debe ser anterior a la fecha actual
+- El DNI no puede estar registrado previamente
+- El email no puede estar registrado previamente
 
 Ejemplo:
  
@@ -260,16 +246,14 @@ Escenarios:
 ---
  
 # Colección Postman
- 
-El proyecto incluye una colección de Postman para probar la API
- 
+  
 La colección contiene:
  
-- Crear cliente.
-- Consultar todos los clientes.
-- Consultar cliente por DNI.
-- Consultar cliente por email.
-- Consultar indicadores.
+- Crear cliente
+- Consultar todos los clientes
+- Consultar cliente por DNI
+- Consultar cliente por email
+- Consultar indicadores
 
  
 ---
