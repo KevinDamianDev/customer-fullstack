@@ -1,0 +1,84 @@
+<section class="indicators">
+
+  <h2>Indicadores</h2>
+
+  @if (loading()) {
+    <p>Cargando indicadores...</p>
+  } @else if (error()) {
+    <p class="error">{{ error() }}</p>
+  } @else if (indicators(); as data) {
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>Mayor cantidad de nacimientos</h3>
+
+        @if (data.mayorCantidadNacimientos) {
+          <strong>
+            {{ data.mayorCantidadNacimientos.mes }}/{{ data.mayorCantidadNacimientos.anio }}
+          </strong>
+
+          <p>
+            {{ data.mayorCantidadNacimientos.cantidad }} clientes
+          </p>
+        } @else {
+          <p>Sin información</p>
+        }
+      </div>
+
+      <div class="card">
+        <h3>Menor cantidad de nacimientos</h3>
+
+        @if (data.menorCantidadNacimientos) {
+          <strong>
+            {{ data.menorCantidadNacimientos.mes }}/{{ data.menorCantidadNacimientos.anio }}
+          </strong>
+
+          <p>
+            {{ data.menorCantidadNacimientos.cantidad }} clientes
+          </p>
+        } @else {
+          <p>Sin información</p>
+        }
+      </div>
+
+    </div>
+
+    <h3 class="table-title">Nacimientos por mes/año</h3>
+
+    @if (data.nacimientosPorMesAnio.length === 0) {
+
+      <p>No existen datos para calcular indicadores.</p>
+
+    } @else {
+
+      <table>
+        <thead>
+          <tr>
+            <th>Mes</th>
+            <th>Año</th>
+            <th>Cantidad</th>
+            <th>Tasa de natalidad</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (
+            item of data.nacimientosPorMesAnio;
+            track item.anio + '-' + item.mes
+          ) {
+            <tr>
+              <td>{{ item.mes }}</td>
+              <td>{{ item.anio }}</td>
+              <td>{{ item.cantidad }}</td>
+              <td>{{ item.tasaNatalidad }}%</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+
+    }
+
+  }
+
+</section>

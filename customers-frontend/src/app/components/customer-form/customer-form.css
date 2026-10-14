@@ -1,0 +1,67 @@
+.customer-form {
+  padding: 24px;
+  margin-bottom: 30px;
+  background: white;
+  border-radius: 8px;
+}
+
+.customer-form h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+input {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+small {
+  margin-top: 5px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 11px 20px;
+  border: none;
+  border-radius: 6px;
+  background: #059a3ec2;
+  color: white;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.success {
+  margin-top: 15px;
+}
+
+.error {
+  margin-top: 15px;
+}
+
+@media (max-width: 700px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}

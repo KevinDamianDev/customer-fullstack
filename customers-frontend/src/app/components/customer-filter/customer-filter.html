@@ -1,0 +1,45 @@
+<div class="filters">
+  <div class="filter-field">
+<label for="dni">DNI</label>
+ 
+    <input
+      id="dni"
+      type="text"
+      placeholder="Ingrese DNI"
+      [ngModel]="dni()"
+      (ngModelChange)="dni.set($event)"
+
+    />
+</div>
+ 
+  <div class="filter-field">
+<label for="email">Email</label>
+ 
+    <input
+      id="email"
+      type="email"
+      placeholder="Ingrese email"
+      [ngModel]="email()"
+      (ngModelChange)="email.set($event)"
+
+    />
+</div>
+ 
+  <div class="filter-actions">
+ 
+    <button
+      type="button"
+      class="btn-primary"
+      (click)="buscarClientes()">
+      Buscar
+</button>
+ 
+    <button type="button"
+      class="btn-secondary"
+      (click)="limpiarFiltros()">
+      Limpiar </button>
+ 
+  </div>
+ 
+</div>
+ 

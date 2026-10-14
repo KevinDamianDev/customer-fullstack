@@ -1,0 +1,47 @@
+<div class="customer-list">
+
+    <h2>Clientes</h2>
+    <app-customer-filter (buscar)="buscarClientes($event)" (limpiar)="limpiarFiltros()"></app-customer-filter>
+
+
+    @if (loading()) {
+    <p>Cargando clientes...</p>
+
+    } @else if (error()) {
+    <p class="error">{{ error() }}</p>
+
+    } @else if (customers().length === 0) {
+    <p>No existen clientes registrados.</p>
+
+    } @else {
+    <table>
+        <thead>
+            <tr>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>F. de nacimiento</th>
+                <th>F. de creación</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @for (customer of customers(); track customer.id) {
+            <tr>
+                <td>{{ customer.dni }}</td>
+                <td>{{ customer.nombre }}</td>
+                <td>{{ customer.apellido }}</td>
+                <td>{{ customer.email }}</td>
+                <td>{{ customer.fechaN }}</td>
+                <td>{{ customer.createdAt }}</td>
+            </tr>
+
+            }
+        </tbody>
+    </table>
+
+    }
+
+</div>

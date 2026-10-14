@@ -1,0 +1,102 @@
+<div class="customer-form">
+
+    <h2>Nuevo cliente</h2>
+
+    <form [formGroup]="customerForm" (ngSubmit)="guardar()">
+
+        <div class="form-grid">
+
+            <div class="form-field">
+                <label for="nombre">Nombre</label>
+
+                <input id="nombre" type="text" formControlName="nombre" placeholder="Ingrese nombre" />
+
+                @if (
+                customerForm.controls.nombre.touched &&
+                customerForm.controls.nombre.invalid
+
+                ) {
+                <small>El nombre es obligatorio.</small>
+                }
+            </div>
+
+            <div class="form-field">
+                <label for="apellido">Apellido</label>
+                <input id="apellido" type="text" formControlName="apellido" placeholder="Ingrese apellido" />
+
+                @if (
+                customerForm.controls.apellido.touched &&
+                customerForm.controls.apellido.invalid
+                ) {
+                <small>El apellido es obligatorio.</small>
+
+                }
+            </div>
+
+            <div class="form-field">
+                <label for="email">Email</label>
+                <input id="email" type="email" formControlName="email" placeholder="correo@ejemplo.com" />
+                @if (
+                customerForm.controls.email.touched &&
+                customerForm.controls.email.hasError('required')
+                ) {
+                <small>El email es obligatorio.</small>
+                }
+
+                @if (
+                customerForm.controls.email.touched &&
+                customerForm.controls.email.hasError('email')
+                ) {
+                <small>Ingrese un email válido.</small>
+                }
+            </div>
+
+            <div class="form-field">
+                <label for="dni">DNI</label>
+                <input id="dni" type="text" formControlName="dni" placeholder="Ingrese DNI" />
+
+                @if (
+                customerForm.controls.dni.touched &&
+                customerForm.controls.dni.invalid
+                ) {
+                <small>El DNI es obligatorio.</small>
+                }
+            </div>
+
+            <div class="form-field">
+                <label for="fechaN">Fecha de nacimiento</label>
+                <input id="fechaN" type="date" formControlName="fechaN" />
+
+                @if (
+
+                customerForm.controls.fechaN.touched &&
+                customerForm.controls.fechaN.invalid
+                ) {
+                <small>La fecha de nacimiento es obligatoria.</small>
+
+                }
+            </div>
+
+        </div>
+
+        @if (mensaje()) {
+        <p class="success">{{ mensaje() }}</p>
+        }
+
+        @if (error()) {
+        <p class="error">{{ error() }}</p>
+        }
+
+        <button type="submit" [disabled]="guardando()">
+
+            @if (guardando()) {
+            Guardando...
+            } @else {
+            Guardar cliente
+            }
+
+        </button>
+
+    </form>
+
+</div>

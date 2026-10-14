@@ -1,0 +1,14 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+header h1 {
+    margin-bottom: 5px;
+}

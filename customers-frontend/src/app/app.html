@@ -1,0 +1,18 @@
+<main class="container">
+
+  <header>
+    <h1>Customers</h1>
+  </header>
+
+  <app-customer-form
+    (clienteCreado)="onCustomerCreated()">
+  </app-customer-form>
+
+  <app-customer-list
+    [refreshTrigger]="refreshCustomers()">
+  </app-customer-list>
+
+    <app-customer-indicators
+    [refreshTrigger]="refreshCustomers()">
+  </app-customer-indicators>
+</main>
